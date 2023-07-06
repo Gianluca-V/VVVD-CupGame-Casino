@@ -15,7 +15,8 @@
         <div class="cups-container" id="cups-container" draggable="false"></div>
         <div class="result-div" id="result-div">
         </div>
-        <button onclick="openModal()" class="modal-open"><div><img src="resources/coin-img.png" alt="coin-img" draggable="false"><p>Como jugar</p></div></button>
+        <button onclick="openBet()" class="open-bet modal-open"><div><img src="resources/coin-img.png" alt="coin-img" draggable="false"><p>Apuesta</p></div></button>
+        <button onclick="openModal()" class="modal-open instructions-open"><div><img src="resources/coin-img.png" alt="coin-img" draggable="false"><p>Como jugar</p></div></button>
     </div>
 
     
@@ -26,6 +27,14 @@
             <p>Selecciona el vaso en el que crees que esta la pelota para ganar puntos       Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores dolore nobis asperiores quos! Officia, voluptatibus consectetur. Quos, voluptate! Ipsa facere, aliquid accusamus placeat hic aspernatur architecto obcaecati suscipit veritatis modi?  Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque voluptatibus molestiae at voluptate unde voluptatum laboriosam, suscipit, delectus debitis quae rem eveniet dolores illum, optio ipsam ab maxime magnam praesentium!</p>
         </div>
     </div>
+
+    <div id="myBetModal" class="modal">
+      <img src="resources/modal-img.png" alt="modal-background-img">
+      <span onclick="closeBet()" class="close">X</span>
+      <div class="modal-content" draggable="false">
+        <label for="bet-input">Apuesta</label>
+        <input type="number" name="bet-input" class="bet-input" id="bet-input" placeholder="000" value="1" min="1">
+      </div>
 
     
     <script>
@@ -40,25 +49,37 @@
           document.getElementById("myModal").style.display = "none";
           document.getElementById("myModal").classList.remove("modal-active");
         }
+
+        // Función para abrir el modal
+      function openBet() {
+        document.getElementById("myBetModal").style.display = "flex";
+        document.getElementById("myBetModal").classList.add("modal-active");
+      }
+
+      // Función para cerrar el modal
+      function closeBet() {
+        document.getElementById("myBetModal").style.display = "none";
+        document.getElementById("myBetModal").classList.remove("modal-active");
+      }
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/Flip.min.js"></script>
     <script src="js/main.js"></script>
 
     <audio id="winSound">
-        <source src="sounds/resources_game-win.mp3" type="audio/mpeg">
+        <source src="resources/game-win.mp3" type="audio/mpeg">
       </audio>
       
       <audio id="loseSound">
-        <source src="sounds/resources_game-lose.mp3" type="audio/mpeg">
+        <source src="resources/game-lose.mp3" type="audio/mpeg">
       </audio>
       
       <audio id="cupSound">
-        <source src="sounds/resources_game-cup.mp3" type="audio/mpeg">
+        <source src="resources/game-cup.mp3" type="audio/mpeg">
       </audio>
 
       <audio id="cupMoveSound">
-        <source src="sounds/game-cup-flip.mp3" type="audio/mpeg">
+        <source src="resources/game-cup-flip.mp3" type="audio/mpeg">
       </audio>
       
 </body>
